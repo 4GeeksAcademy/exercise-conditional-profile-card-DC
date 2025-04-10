@@ -33,14 +33,28 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name == null ? "Name" : variables.name} ${
+    variables.lastName == null ? "LastName" : variables.lastName
+  }</h1>
+          <h2>${variables.role == null ? "" : variables.role}</h2>
+          <h3>${variables.city == null ? "" : variables.city.trim()}${
+    variables.country == null ? "" : ", " + variables.country
+  }</h3>
+          <ul class="${variables.socialMediaPosition}">
+            <li><a target="_blank" href="https://twitter.com/${
+              variables.twitter == null ? "Diego_8P" : variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a target="_blank" href="https://github.com/${
+              variables.github == null ? "D1nx0x" : variables.github
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a target="_blank" href="https://linkedin.com/${
+              variables.linkedin == null
+                ? "diego-crespo-338011272"
+                : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a target="_blank" href="https://instagram.com/${
+              variables.instagram == null ? "diegocrspo" : variables.linkedin
+            }"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
